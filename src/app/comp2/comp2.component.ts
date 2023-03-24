@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-comp2',
@@ -7,9 +8,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class Comp2Component implements OnInit {
 
+  @ViewChild(AppComponent) ac!:AppComponent;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   check(){
