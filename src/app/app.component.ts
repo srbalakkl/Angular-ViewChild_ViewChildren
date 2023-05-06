@@ -30,6 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log('Using ViewChild to access child method :',this.compRef.check(),'\n\n')
 
     console.log('Using ViewChildren Element Ref :', this.vdivRef.first.nativeElement.style.color = "Orange")
+    console.log('Using ViewChildren Element Ref :', this.vdivRef.get(0).nativeElement.style.color = "blue")
     console.log('Using ViewChildren Element Ref :', this.vdivRef.get(1).nativeElement.style.color = "Red")
 
     console.log(this.children)

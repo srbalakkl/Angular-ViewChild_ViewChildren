@@ -8,7 +8,7 @@ import {AppComponent} from "../app.component";
 })
 export class Comp2Component implements OnInit {
 
-  @ViewChild(AppComponent) ac!:AppComponent;
+  @ViewChild(AppComponent) ac: AppComponent | undefined;
   constructor() { }
 
   ngOnInit(): void {
