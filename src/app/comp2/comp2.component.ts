@@ -8,14 +8,16 @@ import {AppComponent} from "../app.component";
 })
 export class Comp2Component implements OnInit {
 
-  @ViewChild(AppComponent) ac: AppComponent | undefined;
-  constructor() { }
+  @ViewChild(AppComponent, {static: true}) ac: AppComponent | undefined;
 
-  ngOnInit(): void {
-
+  constructor() {
   }
 
-  check(){
+  ngOnInit(): void {
+    console.log(this.ac?.title)//<- always show undefined error because ViewChild is not for parent component.
+  }
+
+  check() {
     return "comp2 function is called";
   }
 
