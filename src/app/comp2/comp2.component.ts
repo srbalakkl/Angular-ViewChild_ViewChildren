@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Host, OnInit, Optional, ViewChild} from '@angular/core';
 import {AppComponent} from "../app.component";
 
 @Component({
@@ -8,13 +8,14 @@ import {AppComponent} from "../app.component";
 })
 export class Comp2Component implements OnInit {
 
-  @ViewChild(AppComponent, {static: true}) ac: AppComponent | undefined;
+  @ViewChild(AppComponent, {static: true}) ac: AppComponent | undefined;//<- will not work because ViewChild is not for the parent component.
 
-  constructor() {
+  constructor(@Optional() @Host() public parent: AppComponent) {
   }
 
   ngOnInit(): void {
-    console.log(this.ac?.title)//<- always show undefined error because ViewChild is not for parent component.
+    console.log(this.ac?.title)//<- always show undefined because ViewChild is not for the parent component.
+    console.log('parent==',this.parent)
   }
 
   check() {
